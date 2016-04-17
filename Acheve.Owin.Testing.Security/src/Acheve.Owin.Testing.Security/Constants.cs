@@ -2,6 +2,6 @@
 {
     internal static class Constants
     {
-        public const string AuthenticationHeaderName = "Authentication";
+        public const string AuthenticationHeaderName = "Authorization";
     }
 }

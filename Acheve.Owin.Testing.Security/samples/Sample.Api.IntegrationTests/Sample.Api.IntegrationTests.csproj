@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Acheve.Owin.Testing.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acheve.Owin.Testing.Security.1.0.1\lib\net45\Acheve.Owin.Testing.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
@@ -105,10 +109,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Acheve.Owin.Testing.Security\Acheve.Owin.Testing.Security.csproj">
-      <Project>{c716220c-acef-4688-a6e2-646ee1e3dd38}</Project>
-      <Name>Acheve.Owin.Testing.Security</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Sample.Api\Sample.Api.csproj">
       <Project>{e1c4af01-079b-4dac-b1b8-83f3cf340bc2}</Project>
       <Name>Sample.Api</Name>
