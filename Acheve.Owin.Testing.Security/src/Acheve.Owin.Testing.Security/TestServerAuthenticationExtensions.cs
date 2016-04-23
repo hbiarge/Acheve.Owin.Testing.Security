@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
+using Microsoft.Owin.Testing;
 
 namespace Acheve.Owin.Testing.Security
 {
@@ -17,7 +18,7 @@ namespace Acheve.Owin.Testing.Security
             return httpClient;
         }
 
-        public static Microsoft.Owin.Testing.RequestBuilder WithIdentity(this Microsoft.Owin.Testing.RequestBuilder requestBuilder, IEnumerable<Claim> claims)
+        public static RequestBuilder WithIdentity(this RequestBuilder requestBuilder, IEnumerable<Claim> claims)
         {
             requestBuilder.AddHeader(
                 Constants.AuthenticationHeaderName,

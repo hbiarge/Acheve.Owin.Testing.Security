@@ -22,7 +22,7 @@ namespace Sample.Api.IntegrationTests
         [Fact]
         public async Task WithHttpClientWithDefautIdentity()
         {
-            var response = await _userHttpCient.GetAsync("api/values");
+            var response = await _userHttpCient.GetAsync("values");
 
             response.EnsureSuccessStatusCode();
         }
@@ -30,7 +30,7 @@ namespace Sample.Api.IntegrationTests
         [Fact]
         public async Task WithRequestBuilder()
         {
-            var response = await _server.CreateRequest("api/values")
+            var response = await _server.CreateRequest("values")
                 .WithIdentity(Identities.User)
                 .GetAsync();
 

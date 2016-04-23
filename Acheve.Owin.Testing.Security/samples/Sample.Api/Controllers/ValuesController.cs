@@ -3,7 +3,7 @@
 namespace Sample.Api.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/values")]
+    [RoutePrefix("values")]
     public class ValuesController : ApiController
     {
         [HttpGet]
