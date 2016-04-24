@@ -37,6 +37,15 @@ namespace Sample.Api.IntegrationTests
             response.EnsureSuccessStatusCode();
         }
 
+        [Fact]
+        public async Task Anonymous()
+        {
+            var response = await _server.CreateRequest("values/public")
+                .GetAsync();
+
+            response.EnsureSuccessStatusCode();
+        }
+
         public void Dispose()
         {
             _server.Dispose();

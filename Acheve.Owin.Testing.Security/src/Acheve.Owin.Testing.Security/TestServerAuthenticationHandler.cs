@@ -7,18 +7,18 @@ using Microsoft.Owin.Security.Infrastructure;
 
 namespace Acheve.Owin.Testing.Security
 {
-    public class TestServerAuthenticationHandler 
+    public class TestServerAuthenticationHandler
         : AuthenticationHandler<TestServerAuthenticationOptions>
     {
         protected override Task<AuthenticationTicket> AuthenticateCoreAsync()
         {
             string[] authHeaderString;
-            var existAuthorizationHeader = 
+            var existAuthorizationHeader =
                 Context.Request.Headers.TryGetValue(Constants.AuthenticationHeaderName, out authHeaderString);
 
             if (existAuthorizationHeader == false)
             {
-                return Task.FromResult<AuthenticationTicket>(null);
+                return Task.FromResult(AnonymousTicket());
             }
 
             AuthenticationHeaderValue authHeader;
@@ -26,7 +26,7 @@ namespace Acheve.Owin.Testing.Security
 
             if (canParse == false || authHeader.Scheme != TestServerAuthenticationDefaults.AuthenticationType)
             {
-                return Task.FromResult<AuthenticationTicket>(null);
+                return Task.FromResult(AnonymousTicket());
             }
 
             var headerClaims = DefautClaimsEncoder.Decode(authHeader.Parameter);
@@ -34,6 +34,12 @@ namespace Acheve.Owin.Testing.Security
 
             var ticket = new AuthenticationTicket(identity, new AuthenticationProperties());
             return Task.FromResult(ticket);
+        }
+
+        private AuthenticationTicket AnonymousTicket()
+        {
+            // Note: Default Anonymous User is new ClaimsPrincipal(new ClaimsIdentity())
+            return new AuthenticationTicket(new ClaimsIdentity(), new AuthenticationProperties());
         }
     }
 }
