@@ -30,7 +30,11 @@ namespace Acheve.Owin.Testing.Security
             }
 
             var headerClaims = DefautClaimsEncoder.Decode(authHeader.Parameter);
-            var identity = new ClaimsIdentity(Options.CommonClaims.Union(headerClaims), Options.AuthenticationType);
+            var identity = new ClaimsIdentity(
+                claims: Options.CommonClaims.Union(headerClaims),
+                authenticationType: Options.AuthenticationType,
+                nameType: Options.NameClaimType,
+                roleType: Options.RoleClaimType);
 
             var ticket = new AuthenticationTicket(identity, new AuthenticationProperties());
             return Task.FromResult(ticket);

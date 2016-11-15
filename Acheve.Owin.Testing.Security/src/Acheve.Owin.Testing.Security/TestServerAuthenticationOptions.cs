@@ -13,5 +13,9 @@ namespace Acheve.Owin.Testing.Security
         }
 
         public IEnumerable<Claim> CommonClaims { get; set; }
+
+        public string NameClaimType { get; set; } = ClaimTypes.Name;
+
+        public string RoleClaimType { get; set; } = ClaimTypes.Role;
     }
 }
