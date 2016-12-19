@@ -10,7 +10,7 @@ create integration test in your WebApi.
 
 But when your WebApi requires authenticated request it could be a little more dificult...
 
-What if I have an easy way to indicate the claims in the request? 
+What if you have an easy way to indicate the claims in the request? 
 
 This package implements an owin authentication middleware and several extension methods to easiy indicate
 the claims for authenticated calls to the WebApi.
@@ -69,7 +69,7 @@ the request with the server RequestBuilder and with the specified claims:
         }
     }
 
-Both methods (WithDefaultIdentity and WithIdentity) accept as the ony parameter an IEnumerabe&lt;Claim&gt; that should include the
+Both methods (`WithDefaultIdentity` and `WithIdentity`) accept as the ony parameter an IEnumerabe&lt;Claim&gt; that should include the
 desired user claims in the request.
 
 You can find a complete example in the [samples](https://github.com/hbiarge/Acheve.Owin.Testing.Security/tree/master/Acheve.Owin.Testing.Security/samples) directory.
