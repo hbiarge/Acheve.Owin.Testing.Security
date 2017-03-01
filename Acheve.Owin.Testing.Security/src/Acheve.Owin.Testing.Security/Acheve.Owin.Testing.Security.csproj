@@ -63,7 +63,9 @@
     <Compile Include="AppBuilderExtensions.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DefautClaimsEncoder.cs" />
+    <Compile Include="HttpResponseMessageExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestBuilderExtensions.cs" />
     <Compile Include="TestServerAuthenticationDefaults.cs" />
     <Compile Include="TestServerAuthenticationExtensions.cs" />
     <Compile Include="TestServerAuthenticationHandler.cs" />

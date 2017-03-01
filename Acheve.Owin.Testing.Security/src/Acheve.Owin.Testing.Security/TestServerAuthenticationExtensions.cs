@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
-using Microsoft.Owin.Testing;
+using Acheve.Owin.Testing.Security;
 
-namespace Acheve.Owin.Testing.Security
+namespace System.Net.Http
 {
     public static class TestServerAuthenticationExtensions
     {
@@ -16,15 +15,6 @@ namespace Acheve.Owin.Testing.Security
                     DefautClaimsEncoder.Encode(claims));
 
             return httpClient;
-        }
-
-        public static RequestBuilder WithIdentity(this RequestBuilder requestBuilder, IEnumerable<Claim> claims)
-        {
-            requestBuilder.AddHeader(
-                Constants.AuthenticationHeaderName,
-                $"{TestServerAuthenticationDefaults.AuthenticationType} {DefautClaimsEncoder.Encode(claims)}");
-
-            return requestBuilder;
         }
     }
 }
